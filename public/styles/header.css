@@ -7,20 +7,20 @@ header {
 }
 
 header div.headerImage {
+  position: relative;
   width: 256px;
   height: 256px;
-  position: relative;
   top: 72px;
   bottom: 0;
-  right: 0;
   left: 0;
+  right: 0;
   margin: auto
 }
 
 h2 {
-  color: #ffffff;
   position: relative;
   display: flex;
   justify-content: center;
-  margin-top: 50px
+  margin-top: 50px;
+  color: #ffffff;
 }
