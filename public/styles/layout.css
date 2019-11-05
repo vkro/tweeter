@@ -21,6 +21,15 @@ body {
   font-size: 24px;
 }
 
+main {
+  position: absolute;
+  width: 90%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 3
+}
+
 
 
 /*
