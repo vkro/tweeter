@@ -8,8 +8,15 @@ textarea {
   resize: none
 }
 
+.new-tweet {
+  padding: 10px 20px;
+  margin: 20px 1px 1px 1px;
+  box-shadow: 3px 2px 10px 2px #CACFD2;
+}
+
 .new-tweet h2 {
   justify-content: left;
+  margin: 0 0 20px;
   color: #566573;
 }
 
