@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+  <meta charset="utf-8">
+
   <!-- Meta Information -->
   <title>Tweeter - Home Page</title>
 
@@ -40,16 +42,29 @@
   <!-- Header -->
   <header>
     <div class="headerImage">
-        <img src="/images/profile-hex.png"> 
+      <img src="/images/profile-hex.png">
     </div>
     <br>
     <div>
-        <h2>Your Name</h2>
+      <h2>Your Name</h2>
     </div>
-</header>
+  </header>
 
   <!-- Page-specific (main) content here -->
   <main class="container">
+    <section class="new-tweet">
+      <h2>Compose Tweet</h2>
+      <form action="/tweets" method="POST">
+        <textarea name="text" placeholder="What are you humming about?"></textarea>
+        <input type="submit" value="Tweet">
+        <span class="counter">140</span>
+      </form>
+    </section>
+
+
+
+
+
     <p>Here is some main content.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
       magna aliqua. Erat imperdiet sed euismod nisi porta lorem mollis aliquam ut. Sed enim ut sem viverra. Tincidunt
