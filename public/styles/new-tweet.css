@@ -35,7 +35,6 @@ input {
 }
 
 .counter {
-  display: inline-block;
   float: right;
   font-family: 'Bungee', cursive
 }
