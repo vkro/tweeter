@@ -40,14 +40,16 @@
 }
 
 .tweet p {
-  padding: 0 0 8px;
-  margin: 12px 0;
+  padding: 0 0 1.1em .5em;
+  margin: 22px 0 12px;
   border-bottom: 3px solid #566573;
+  color: #2c3e50;
+  font-size: 16pt
 }
 
 
 .tweet footer {
-  
+  font-size: 11pt;
 }
 
 .tweet footer.date-posted {
