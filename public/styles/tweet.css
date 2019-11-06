@@ -1,14 +1,18 @@
 .tweet {
   padding: 15px;
   margin: 20px 0;
-  color: #545149;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #566573;
   background-color: #f4f1ec;
   border: 3px solid #566573;
 }
 
 
 .tweet header {
-  color: #545149;
+  position: relative;
+  font-size: 17pt;
+  height: 100px;
+  color: #566573;
   background-color: #f4f1ec;
 }
 
