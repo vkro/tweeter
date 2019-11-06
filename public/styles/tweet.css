@@ -10,30 +10,41 @@
 
 .tweet header {
   position: relative;
-  font-size: 17pt;
-  height: 100px;
+  font-size: 15pt;
+  height: 70px;
+  margin: 12px 0
   color: #566573;
   background-color: #f4f1ec;
 }
 
 .tweet header img {
-  height: 100px;
+  height: 70px;
   background-color: transparent;
 }
 
-.tweet header.name {
+.tweet header .name {
   position: absolute;
-  top: 34px;
-  left: 111px
+  top: 19px;
+  left: 80px;
+  font-weight: 300
 
 }
 
-.tweet header.handle {
+.tweet header .handle {
   position: absolute;
-  top: 24px;
+  top: 19px;
   right: 10px;
-  opacity: 70%
+  opacity: 60%;
+  font-weight: 300;
+
 }
+
+.tweet p {
+  padding: 0 0 8px;
+  margin: 12px 0;
+  border-bottom: 3px solid #566573;
+}
+
 
 .tweet footer {
   
