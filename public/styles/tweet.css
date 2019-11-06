@@ -49,13 +49,11 @@
 
 
 .tweet footer {
+  position: relative;
   font-size: 11pt;
 }
 
-.tweet footer.date-posted {
-  
-}
-
-.tweet footer.icons {
-  
+.tweet footer .icons {
+  position: absolute;
+  right: 0
 }
