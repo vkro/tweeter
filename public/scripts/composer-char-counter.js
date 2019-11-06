@@ -1,10 +1,9 @@
 $(document).ready(function() {
 
   $("#text").keypress(function() {
-    let count = $(".counter").text();
-    count = Number(count);
-    count++;
-    $(".counter").text(count);
+    let counter = $(".counter").text();
+    let count = ($(this).context.value).length;
+    $(".counter").text((count + 1));
   });
 
 });
