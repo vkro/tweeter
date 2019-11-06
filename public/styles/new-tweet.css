@@ -38,3 +38,7 @@ input {
   float: right;
   font-family: 'Bungee', cursive
 }
+
+.counter[id="negative"] {
+  color: #e74c3c
+}
