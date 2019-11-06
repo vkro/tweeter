@@ -1,9 +1,9 @@
 $(document).ready(function() {
 
-  $("#text").keypress(function() {
+  $("#text").keyup(function() {
     let counter = $(".counter").text();
     let count = ($(this).context.value).length;
-    $(".counter").text((count + 1));
+    $(".counter").text((140 - count));
   });
 
 });
