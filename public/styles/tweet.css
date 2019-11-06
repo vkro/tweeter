@@ -22,11 +22,17 @@
 }
 
 .tweet header.name {
+  position: absolute;
+  top: 34px;
+  left: 111px
 
 }
 
 .tweet header.handle {
-
+  position: absolute;
+  top: 24px;
+  right: 10px;
+  opacity: 70%
 }
 
 .tweet footer {
