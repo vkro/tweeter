@@ -15,9 +15,9 @@
 
 .tweet header {
   position: relative;
-  font-size: 15pt;
   height: 70px;
   margin: 0;
+  font-size: 15pt;
   color: #566573;
   background-color: #f4f1ec;
 }
