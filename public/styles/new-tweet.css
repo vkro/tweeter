@@ -39,6 +39,6 @@ input {
   font-family: 'Bungee', cursive
 }
 
-.counter[id="negative"] {
+.counter.negative {
   color: #e74c3c
 }

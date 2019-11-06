@@ -5,9 +5,9 @@ $(document).ready(function() {
     let count = ($(this).context.value).length;
     let charsLeft = 140 - count;
     if (charsLeft < 0) {
-      counter.attr("id", "negative");
+      counter.addClass("negative");
     } else {
-      counter.attr("id", "positive")
+      counter.removeClass("negative")
     }
     $(counter).text(charsLeft);
   });
