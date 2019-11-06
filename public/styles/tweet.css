@@ -18,11 +18,10 @@
   height: 70px;
   margin: 0;
   font-size: 15pt;
-  color: #566573;
-  background-color: #f4f1ec;
+  font-weight: 300
 }
 
-.tweet header .avatar {
+.tweet-avatar {
   position: absolute;
   width: 70px;
   height: 70px;
@@ -30,14 +29,13 @@
   left: 0;
 }
 
-.tweet header .name {
+.tweet-name {
   position: absolute;
   top: 19px;
   left: 80px;
-  font-weight: 300
 }
 
-.tweet header .handle {
+.tweet-handle {
   position: absolute;
   top: 19px;
   right: 10px;
@@ -45,11 +43,11 @@
   font-weight: 300;
 }
 
-.tweet:hover header .handle{
+.tweet:hover .tweet-handle{
   opacity: .6
 }
 
-.tweet p {
+.tweet-body {
   padding: 0 0 1.1em .5em;
   margin: 22px 0 12px;
   border-bottom: 3px solid #566573;
@@ -57,12 +55,12 @@
   font-size: 16pt
 }
 
-.tweet footer {
+.tweet-footer {
   position: relative;
   font-size: 11pt;
 }
 
-.tweet footer .icons {
+.tweet-icons {
   position: absolute;
   right: 0
 }
