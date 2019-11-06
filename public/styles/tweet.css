@@ -5,21 +5,29 @@
   color: #566573;
   background-color: #f4f1ec;
   border: 3px solid #566573;
+  opacity: .85
 }
 
+.tweet:hover {
+  box-shadow: 3px 2px 10px 4px #CACFD2;
+  opacity: 1
+}
 
 .tweet header {
   position: relative;
   font-size: 15pt;
   height: 70px;
-  margin: 12px 0
+  margin: 0;
   color: #566573;
   background-color: #f4f1ec;
 }
 
-.tweet header img {
+.tweet header .avatar {
+  position: absolute;
+  width: 70px;
   height: 70px;
-  background-color: transparent;
+  top: 0;
+  left: 0;
 }
 
 .tweet header .name {
@@ -27,16 +35,18 @@
   top: 19px;
   left: 80px;
   font-weight: 300
-
 }
 
 .tweet header .handle {
   position: absolute;
   top: 19px;
   right: 10px;
-  opacity: 60%;
+  opacity: 0;
   font-weight: 300;
+}
 
+.tweet:hover header .handle{
+  opacity: .6
 }
 
 .tweet p {
@@ -46,7 +56,6 @@
   color: #2c3e50;
   font-size: 16pt
 }
-
 
 .tweet footer {
   position: relative;
