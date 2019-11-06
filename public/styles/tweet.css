@@ -1,0 +1,38 @@
+.tweet {
+  padding: 15px;
+  margin: 20px 0;
+  color: #545149;
+  background-color: #f4f1ec;
+  border: 3px solid #566573;
+}
+
+
+.tweet header {
+  color: #545149;
+  background-color: #f4f1ec;
+}
+
+.tweet header img {
+  height: 100px;
+  background-color: transparent;
+}
+
+.tweet header.name {
+
+}
+
+.tweet header.handle {
+
+}
+
+.tweet footer {
+  
+}
+
+.tweet footer.date-posted {
+  
+}
+
+.tweet footer.icons {
+  
+}
