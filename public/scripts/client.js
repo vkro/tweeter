@@ -153,4 +153,13 @@ $(document).ready(function () {
 
   renderTweets(data);
 
+  // const preventFormSubmission = function() {
+  //   $("input").click(function( event ) {
+  //     event.preventDefault();
+  //   })
+  // }
+
+  preventFormSubmission();
+
+
 });
