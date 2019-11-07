@@ -1,5 +1,6 @@
 // Takes in number representing # of seconds
 // Converts into minutes, days, hours, weeks, or years
+// Reference: stackoverflow @ https://stackoverflow.com/questions/11792726/turn-seconds-into-hms-format-using-jquery
 
 const unitsOfTime = function (seconds) {
   let secondsLeft = seconds;
