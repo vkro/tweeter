@@ -146,9 +146,9 @@ $(document).ready(function () {
     const $renderTweetsArray = [];
     for (const tweet of tweets) {
       const tweetElement = createTweetElement(tweet);
-      $renderTweetsArray.push(tweetElement);
+      $renderTweetsArray.unshift(tweetElement);
     }
-    $('.tweets-container').append($renderTweetsArray);
+    ($('.tweets-container')).prepend($renderTweetsArray);
   }
 
   // renderTweets(data);
