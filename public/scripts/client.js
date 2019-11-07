@@ -157,6 +157,8 @@ $(document).ready(function () {
     $("input").click(function (event) {
       event.preventDefault();
       postNewTweet($('.tweet-input'));
+      $(".tweet-input").trigger("reset");
+      $(".counter").text(140);
     })
   }
 
