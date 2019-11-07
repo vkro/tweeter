@@ -6,30 +6,30 @@
 
 
 // Fake data taken from initial-tweets.json
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
+// const data = [
+//   {
+//     "user": {
+//       "name": "Newton",
+//       "avatars": "https://i.imgur.com/73hZDYK.png"
+//       ,
+//       "handle": "@SirIsaac"
+//     },
+//     "content": {
+//       "text": "If I have seen further it is by standing on the shoulders of giants"
+//     },
+//     "created_at": 1461116232227
+//   },
+//   {
+//     "user": {
+//       "name": "Descartes",
+//       "avatars": "https://i.imgur.com/nlhLi3I.png",
+//       "handle": "@rd" },
+//     "content": {
+//       "text": "Je pense , donc je suis"
+//     },
+//     "created_at": 1461113959088
+//   }
+// ]
 
 //////////////////////////////////////////////////////
 //                                                  //
@@ -97,13 +97,13 @@ const timeBreakdown = function (time) {
 // Takes in tweet object
 // Returns amount of time elapsed since date created to current time
 
-const howLongAgoWasThisTweetCreated = function(tweet) {
+const howLongAgoWasThisTweetCreated = function (tweet) {
   const currentTime = new Date().getTime();
   const tweetCreatedAt = tweet.created_at;
   const timeSinceTweet = currentTime - tweetCreatedAt;
 
   const howLong = timeBreakdown(unitsOfTime(timeSinceTweet));
-  
+
   return `${howLong} ago`
 }
 
@@ -116,7 +116,7 @@ $(document).ready(function () {
   const createTweetElement = function (tweet) {
 
     const timeSinceTweet = howLongAgoWasThisTweetCreated(tweet);
-    
+
     const $newTweet = `
     <article class="tweet">
     <header class="tweet-header">
@@ -141,8 +141,8 @@ $(document).ready(function () {
   // Takes in array of tweets
   // Calls createTweetElement for each tweet
   // Appends tweets to the tweets container
-  
-  const renderTweets = function(tweets) {
+
+  const renderTweets = function (tweets) {
     const $renderTweetsArray = [];
     for (const tweet of tweets) {
       const tweetElement = createTweetElement(tweet);
@@ -151,10 +151,10 @@ $(document).ready(function () {
     $('.tweets-container').append($renderTweetsArray);
   }
 
-  renderTweets(data);
+  // renderTweets(data);
 
-  const preventFormSubmission = function() {
-    $("input").click(function( event ) {
+  const preventFormSubmission = function () {
+    $("input").click(function (event) {
       event.preventDefault();
       postNewTweet($('.tweet-input'));
     })
@@ -162,18 +162,51 @@ $(document).ready(function () {
 
   preventFormSubmission();
 
-  const postNewTweet = function(input) {
-    $.post("/tweets", input.serialize())
+  // if (0 < $(".counter").text() && $(".counter").text() < 141) {
+  // } else console.log("nope")
 
-    .done(function() {
-      console.log(`success: tweet posted! ${input.serialize()}`);
-    })
-    .fail(function(xhr, textStatus, errorThrown) {
+  // if (140 < $(".counter").text()) {
+  //     console.log("too many characters!")
+  //   }
+
+  // module.exports = (delay = 3000, isRandom = false) => {
+  //   const wait = isRandom ? Math.floor(Math.random() * delay) : delay;
+  //   return new Promise((resolve, reject) => {
+  //     setTimeout(reject, wait);
+  //   });
+  // };
+
+
+  const postNewTweet = function (input) {
+
+    const inputLength = $("#textArea").val().length;
+
+    if (inputLength === 0) {
+      return alert("no input");
+    } else if (140 < inputLength) {
+      return alert("too many characters");
+    } else {
+      $.post("/tweets", input.serialize())
+      .done(function () {
+        console.log(`success: tweet posted! ${input.serialize()}`);
+      })
+      .fail(function (xhr, textStatus, errorThrown) {
         console.log(errorThrown);
-    })
-    .always(function() {
-      console.log("finished")
-    })
+      })
+      .always(function () {
+        console.log("finished")
+      })
+    }
   }
+
+  const loadTweets = function () {
+
+  $.ajax("/tweets", { method: 'GET' })
+    .then(function (tweets) {
+      renderTweets(tweets);
+    })
+}
+
+loadTweets();
 
 });
