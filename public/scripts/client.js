@@ -32,40 +32,28 @@ const tweetData = {
 $(document).ready(function() {
   
   const createTweetElement = function (tweet) {
-    const $tweet = $("<article>").addClass("tweet");
-    const $header = $("<header>").addClass("tweet-header");
-    const $avatar = $("<img>").addClass("tweet-avatar")
-    const $name = $("<span>").addClass("tweet-name")
-    const $handle = $("<span>").addClass("tweet-handle");
-    const $body = $("<p>").addClass("tweet-body");
-    const $footer = $("<footer>").addClass("tweet-footer");
-    const $createdAt = $("<span>").addClass("created-at");
-    const $tweetIcons = $("<span>").addClass("tweet-icons");
-    const $flag = $("<i>").addClass("material-icons");
-    const $repeat = $("<i>").addClass("material-icons");
-    const $favorite = $("<i>").addClass("material-icons");
-
-    $avatar.attr("src", tweet.user.avatars);
-    $name.append(tweet.user.name);
-    $handle.append(tweet.user.handle);
-    $header.append($avatar, $name, $handle);
-    $body.append(tweet.content.text);
-    $flag.append("flag");
-    $repeat.append("repeat");
-    $favorite.append("favorite");
-    $tweetIcons.append($flag, $repeat, $favorite);
-    $createdAt.append(tweet.created_at);
-    $footer.append($createdAt, $tweetIcons);
-
-
-
-    const $theTweet = $($tweet).append($header).append($body).append($footer);
-  
-    return $theTweet;
+    const $newTweet = `
+    <article class="tweet">
+      <header class="tweet-header">
+        <img class="tweet-avatar" src=${tweet.user.avatars}>
+        <span class="tweet-name">${tweet.user.name}</span>
+        <span class="tweet-handle">${tweet.user.handle}<span>
+      </header>
+      <p class="tweet-body">${tweet.content.text}</p>
+      <footer class="tweet-footer">
+        <span class="created-at">${tweet.created_at}</span>
+        <span class="tweet-icons">
+        <i class="material-icons">flag</i>
+        <i class="material-icons">repeat</i>
+        <i class="material-icons">favorite</i>
+        </span>
+      </footer>
+    </article>
+    `  
+    return $newTweet;
   };
 
   const $tweet = createTweetElement(tweetData);
-  console.log($tweet);
   $('.tweets-container').append($tweet);
 });
 
