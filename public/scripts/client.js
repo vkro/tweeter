@@ -187,8 +187,8 @@ $(document).ready(function () {
       return alert("too many characters");
     } else {
       $.post("/tweets", input.serialize())
-      .done(function () {
-        console.log(`success: tweet posted! ${input.serialize()}`);
+      .done(function (result) {
+        ($('.tweets-container')).prepend(createTweetElement(result));
       })
       .fail(function (xhr, textStatus, errorThrown) {
         console.log(errorThrown);
