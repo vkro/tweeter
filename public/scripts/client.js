@@ -4,7 +4,6 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-
 const tweetData = {
   "user": {
     "name": "Newton",
@@ -17,21 +16,88 @@ const tweetData = {
   "created_at": 1461116232227
 };
 
-// Recall that you can use jQuery to construct new elements using the $ function, 
-// like so: const $tweet = $("<article>").addClass("tweet");
+// Takes in number representing # of seconds
+// Converts into minutes, days, hours, weeks, and years
+// Returns these values in an object
 
-// $( ".inner" ).append( "<p>Test</p>" );
+const unitsOfTime = function (seconds) {
+
+  let secondsLeft = seconds;
+
+  const centuries = Math.floor(secondsLeft / (604800 * 52 * 1000))
+  secondsLeft = secondsLeft - (centuries * 604800 * 52 * 1000)
+
+  const decades = Math.floor(secondsLeft / (604800 * 52 * 10))
+  secondsLeft = secondsLeft - (decades * 604800 * 52 * 10)
+
+  const years = Math.floor(secondsLeft / (604800 * 52));
+  secondsLeft = secondsLeft - (years * 604800 * 52);
+
+  const months = Math.floor(secondsLeft / (68400 * 30));
+  secondsLeft = secondsLeft - (months * 68400 * 30);
+
+  const days = Math.floor(secondsLeft / 68400);
+  secondsLeft = secondsLeft - (days * 68400);
+
+  const hours = Math.floor(secondsLeft / 3600);
+  secondsLeft = secondsLeft - (hours * 3600);
+
+  const minutes = Math.floor(secondsLeft / 60);
+  secondsLeft = secondsLeft - (minutes * 60)
+
+  const timeBreakdown = {
+    centuries,
+    decades,
+    years,
+    months,
+    days,
+    hours,
+    minutes,
+    seconds: secondsLeft
+  }
+
+  return timeBreakdown
+}
+
+// Takes in an object of time with years, months, days, hours, minutes, and seconds
+// as keys with corresponding values
+// Returns a string indicating the number of the largest unit of time
+
+const timeBreakdown = function (time) {
+
+  for (const unit of Object.keys(time)) {
+    let convertToNumber = Number(time[unit]);
+    if (convertToNumber !== 0) {
+      return `${convertToNumber} ${unit}`
+    }
+  }
+}
 
 
-/*
- * Takes in tweet object 
- * Returns tweet <article> containing HTML structure of tweet
-*/
+// Takes in tweet object
+// Returns amount of time elapsed since date created to current time
 
+const howLongAgoWasThisTweetCreated = function(tweet) {
+  const currentTime = new Date().getTime();
+  const tweetCreatedAt = tweet.created_at;
+  const timeSinceTweet = currentTime - tweetCreatedAt;
 
-$(document).ready(function() {
+  const howLong = timeBreakdown(unitsOfTime(timeSinceTweet));
   
+  return `${howLong} ago`
+}
+
+
+// Takes in tweet object 
+// Returns tweet <article> containing HTML structure of tweet
+
+
+$(document).ready(function () {
+
   const createTweetElement = function (tweet) {
+
+    const timeSinceTweet = howLongAgoWasThisTweetCreated(tweet);
+
     const $newTweet = `
     <article class="tweet">
       <header class="tweet-header">
@@ -41,7 +107,7 @@ $(document).ready(function() {
       </header>
       <p class="tweet-body">${tweet.content.text}</p>
       <footer class="tweet-footer">
-        <span class="created-at">${tweet.created_at}</span>
+        <span class="created-at">${timeSinceTweet}</span>
         <span class="tweet-icons">
         <i class="material-icons">flag</i>
         <i class="material-icons">repeat</i>
@@ -49,7 +115,7 @@ $(document).ready(function() {
         </span>
       </footer>
     </article>
-    `  
+    `
     return $newTweet;
   };
 
