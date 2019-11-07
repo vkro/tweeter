@@ -34,18 +34,39 @@ $(document).ready(function() {
   const createTweetElement = function (tweet) {
     const $tweet = $("<article>").addClass("tweet");
     const $header = $("<header>").addClass("tweet-header");
-    const $img = $("<img>").addClass("tweet-avatar");
+    const $avatar = $("<img>").addClass("tweet-avatar")
     const $name = $("<span>").addClass("tweet-name")
-    const $handle = $("<span>").addClass("tweet-handl");
+    const $handle = $("<span>").addClass("tweet-handle");
     const $body = $("<p>").addClass("tweet-body");
-  
-    const $theTweet = $($tweet).append($header, $img, $name);
+    const $footer = $("<footer>").addClass("tweet-footer");
+    const $createdAt = $("<span>").addClass("created-at");
+    const $tweetIcons = $("<span>").addClass("tweet-icons");
+    const $flag = $("<i>").addClass("material-icons");
+    const $repeat = $("<i>").addClass("material-icons");
+    const $favorite = $("<i>").addClass("material-icons");
+
+    $avatar.attr("src", tweet.user.avatars);
+    $name.append(tweet.user.name);
+    $handle.append(tweet.user.handle);
+    $header.append($avatar, $name, $handle);
+    $body.append(tweet.content.text);
+    $flag.append("flag");
+    $repeat.append("repeat");
+    $favorite.append("favorite");
+    $tweetIcons.append($flag, $repeat, $favorite);
+    $createdAt.append(tweet.created_at);
+    $footer.append($createdAt, $tweetIcons);
+
+
+
+    const $theTweet = $($tweet).append($header).append($body).append($footer);
   
     return $theTweet;
   };
 
-  const test = createTweetElement(tweetData);
-  console.log(test);
+  const $tweet = createTweetElement(tweetData);
+  console.log($tweet);
+  $('.tweets-container').append($tweet);
 });
 
 
