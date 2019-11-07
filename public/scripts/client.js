@@ -153,13 +153,27 @@ $(document).ready(function () {
 
   renderTweets(data);
 
-  // const preventFormSubmission = function() {
-  //   $("input").click(function( event ) {
-  //     event.preventDefault();
-  //   })
-  // }
+  const preventFormSubmission = function() {
+    $("input").click(function( event ) {
+      event.preventDefault();
+      postNewTweet($('.tweet-input'));
+    })
+  }
 
   preventFormSubmission();
 
+  const postNewTweet = function(input) {
+    $.post("/tweets", input.serialize())
+
+    .done(function() {
+      console.log(`success: tweet posted! ${input.serialize()}`);
+    })
+    .fail(function(xhr, textStatus, errorThrown) {
+        console.log(errorThrown);
+    })
+    .always(function() {
+      console.log("finished")
+    })
+  }
 
 });
