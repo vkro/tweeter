@@ -87,9 +87,9 @@ const unitsOfTime = function (seconds) {
 const timeBreakdown = function (time) {
 
   for (const unit of Object.keys(time)) {
-    let convertToNumber = Number(time[unit]);
-    if (convertToNumber !== 0) {
-      return `${convertToNumber} ${unit}`
+    let count = Number(time[unit]);
+    if (count !== 0) {
+      return `${count} ${unit}`
     }
   }
 }
