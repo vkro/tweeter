@@ -116,6 +116,12 @@ $(document).ready(function () {
   const createTweetElement = function (tweet) {
 
     const timeSinceTweet = howLongAgoWasThisTweetCreated(tweet);
+    
+    const escape =  function(str) {
+      let div = document.createElement('div');
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    }
 
     const $newTweet = `
     <article class="tweet">
@@ -124,7 +130,7 @@ $(document).ready(function () {
         <span class="tweet-name">${tweet.user.name}</span>
         <span class="tweet-handle">${tweet.user.handle}<span>
       </header>
-      <p class="tweet-body">${tweet.content.text}</p>
+      <p class="tweet-body">${escape(tweet.content.text)}</p>
       <footer class="tweet-footer">
         <span class="created-at">${timeSinceTweet}</span>
         <span class="tweet-icons">
