@@ -31,6 +31,12 @@ const data = [
   }
 ]
 
+//////////////////////////////////////////////////////
+//                                                  //
+//   MOVE HELPERS AND LINK AS SCRIPTS IN HTML FILE  //
+//                                                  //
+//////////////////////////////////////////////////////
+
 // Takes in number representing # of seconds
 // Converts into minutes, days, hours, weeks, and years
 // Returns these values in an object
@@ -39,11 +45,11 @@ const unitsOfTime = function (seconds) {
 
   let secondsLeft = seconds;
 
-  const centuries = Math.floor(secondsLeft / (604800 * 52 * 1000))
-  secondsLeft = secondsLeft - (centuries * 604800 * 52 * 1000)
+  const centuries = Math.floor(secondsLeft / (604800 * 52000))
+  secondsLeft = secondsLeft - (centuries * 604800 * 52000)
 
-  const decades = Math.floor(secondsLeft / (604800 * 52 * 10))
-  secondsLeft = secondsLeft - (decades * 604800 * 52 * 10)
+  const decades = Math.floor(secondsLeft / (604800 * 520))
+  secondsLeft = secondsLeft - (decades * 604800 * 520)
 
   const years = Math.floor(secondsLeft / (604800 * 52));
   secondsLeft = secondsLeft - (years * 604800 * 52);
@@ -128,7 +134,7 @@ $(document).ready(function () {
         </span>
       </footer>
     </article>
-    `
+    `;
     return $newTweet;
   };
 
@@ -140,7 +146,7 @@ $(document).ready(function () {
     const $renderTweetsArray = [];
     for (const tweet of tweets) {
       const tweetElement = createTweetElement(tweet);
-      $renderTweetsArray.push(tweetElement)
+      $renderTweetsArray.push(tweetElement);
     }
     $('.tweets-container').append($renderTweetsArray);
   }
