@@ -10,7 +10,14 @@ nav {
 }
 
 .navbar {
+  position: relative;
   height: 120px
+}
+
+.logo {
+  position: absolute;
+  top: 50px;
+  left: 5%
 }
 
 nav span {
