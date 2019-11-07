@@ -4,17 +4,32 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const tweetData = {
-  "user": {
-    "name": "Newton",
-    "avatars": "https://i.imgur.com/73hZDYK.png",
-    "handle": "@SirIsaac"
+
+// Fake data taken from initial-tweets.json
+const data = [
+  {
+    "user": {
+      "name": "Newton",
+      "avatars": "https://i.imgur.com/73hZDYK.png"
+      ,
+      "handle": "@SirIsaac"
+    },
+    "content": {
+      "text": "If I have seen further it is by standing on the shoulders of giants"
+    },
+    "created_at": 1461116232227
   },
-  "content": {
-    "text": "If I have seen further it is by standing on the shoulders of giants"
-  },
-  "created_at": 1461116232227
-};
+  {
+    "user": {
+      "name": "Descartes",
+      "avatars": "https://i.imgur.com/nlhLi3I.png",
+      "handle": "@rd" },
+    "content": {
+      "text": "Je pense , donc je suis"
+    },
+    "created_at": 1461113959088
+  }
+]
 
 // Takes in number representing # of seconds
 // Converts into minutes, days, hours, weeks, and years
@@ -73,7 +88,6 @@ const timeBreakdown = function (time) {
   }
 }
 
-
 // Takes in tweet object
 // Returns amount of time elapsed since date created to current time
 
@@ -88,20 +102,19 @@ const howLongAgoWasThisTweetCreated = function(tweet) {
 }
 
 
-// Takes in tweet object 
-// Returns tweet <article> containing HTML structure of tweet
-
-
 $(document).ready(function () {
+
+  // Takes in tweet object 
+  // Returns tweet <article> containing HTML structure of tweet
 
   const createTweetElement = function (tweet) {
 
     const timeSinceTweet = howLongAgoWasThisTweetCreated(tweet);
-
+    
     const $newTweet = `
     <article class="tweet">
-      <header class="tweet-header">
-        <img class="tweet-avatar" src=${tweet.user.avatars}>
+    <header class="tweet-header">
+    <img class="tweet-avatar" src=${tweet.user.avatars}>
         <span class="tweet-name">${tweet.user.name}</span>
         <span class="tweet-handle">${tweet.user.handle}<span>
       </header>
@@ -119,9 +132,19 @@ $(document).ready(function () {
     return $newTweet;
   };
 
-  const $tweet = createTweetElement(tweetData);
-  $('.tweets-container').append($tweet);
+  // Takes in array of tweets
+  // Calls createTweetElement for each tweet
+  // Appends tweets to the tweets container
+  
+  const renderTweets = function(tweets) {
+    const $renderTweetsArray = [];
+    for (const tweet of tweets) {
+      const tweetElement = createTweetElement(tweet);
+      $renderTweetsArray.push(tweetElement)
+    }
+    $('.tweets-container').append($renderTweetsArray);
+  }
+
+  renderTweets(data);
+
 });
-
-
-
