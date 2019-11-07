@@ -17,10 +17,18 @@ nav {
 .logo {
   position: absolute;
   top: 50px;
-  left: 5%
-}
-
-nav span {
+  left: 5%;
   font-family: 'Bungee', cursive;
   color: #ffffff
+}
+
+.right-side-buttons {
+  position: absolute;
+  top: 48px;
+  right: 5%
+}
+
+.write-new-tweet {
+  display: flex;
+  flex-direction: column;
 }
