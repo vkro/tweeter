@@ -1,6 +1,13 @@
 $(document).ready(function() {
-
   $(".write-new-tweet-btn").click(function() {
-    $(".new-tweet").toggleClass("slider");
+    $(".new-tweet").slideToggle("slow");
   });
 });
+
+
+
+
+// $(".write-new-tweet-btn").click(function() {
+//   $(".new-tweet").toggleClass("slider");
+// })
+  

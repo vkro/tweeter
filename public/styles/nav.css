@@ -66,6 +66,14 @@ nav {
     transform: translateX(0%)
   }
   to {
-    transform: translateX(15%)
+    transform: translateX(25%)
   }
 }
+
+/* .new-tweet {
+  transition: transform 1s 0.25s ease-in-out;
+}
+
+.new-tweet.slider {
+  transform: translateY(-250px);
+} */
