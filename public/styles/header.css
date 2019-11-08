@@ -13,14 +13,14 @@
   position: relative;
   width: 256px;
   height: 256px;
-  top: 72px;
+  top: 18%;
   bottom: 0;
   left: 0;
   right: 0;
   margin: auto
 }
 
-.user-header h2 {
+.header-username {
   position: relative;
   display: flex;
   justify-content: center;
@@ -31,5 +31,16 @@
 @media (min-width: 1024px) {
   .user-header {
     position: relative;
+    width: 30%;
+    margin-top: 3%;
+    margin-left: 5%
   }
+  .user-header-avatar {
+    top: 10%
+  }
+
+  .header-username {
+    margin-top: 30px;
+  }
+
 }
