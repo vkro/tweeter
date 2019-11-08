@@ -1,5 +1,5 @@
-$(document).ready(function() {
-  $(".write-new-tweet").click(function() {
+$(document).ready(function () {
+  $(".write-new-tweet").click(function () {
     $(".validation-error").hide(0, "swing");
     $(".new-tweet").slideToggle("slow");
     $("#textArea").focus();
@@ -12,4 +12,3 @@ $(document).ready(function() {
 // $(".write-new-tweet-btn").click(function() {
 //   $(".new-tweet").toggleClass("slider");
 // })
-  
