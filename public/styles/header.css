@@ -30,9 +30,9 @@
 
 @media (min-width: 1024px) {
   .user-header {
-    position: relative;
+    position: fixed;
     width: 30%;
-    margin-top: 3%;
+    margin-top: 16%;
     margin-left: 5%
   }
   .user-header-avatar {
