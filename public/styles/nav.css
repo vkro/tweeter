@@ -43,24 +43,33 @@ nav {
 
 .write-new-tweet-btn {
   position: absolute;
-  top: 40px;
-  left: 110px;
+  top: 60px;
+  left: 150px;
   width: 30px;
-  height: 30px;
+  height: 0px;
   transform: rotate(90deg);
   border: none;
   color: orangered;
   background-color: transparent;
 }
 
-/* .new-tweet {
-  transition: transform 1s 0.25s ease-in-out;
+.write-new-tweet:hover .material-icons {
+  cursor: pointer;
+  animation-duration: .5s;
+  animation-name: bobble;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
 }
-
-.new-tweet.slider {
-  transform: translateY(-250px);
-} */
-
+  
+@keyframes bobble {
+  from {
+    transform: translateX(0%)
+  }
+  to {
+    transform: translateX(35%)
+  }
+}
 
 @media (min-width: 1024px) {
   nav {
@@ -76,26 +85,7 @@ nav {
   }
   
   .write-new-tweet-btn {
-    top: 20px;
-    left: 50px;
+    top: 35px;
+    left: 60px;
   }
-
-  .write-new-tweet:hover .material-icons {
-    cursor: pointer;
-    animation-duration: .5s;
-    animation-name: bobble;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-timing-function: ease-in-out;
-  }
-  
-  @keyframes bobble {
-    from {
-      transform: translateX(0%)
-    }
-    to {
-      transform: translateX(35%)
-    }
-  }
-
 }
