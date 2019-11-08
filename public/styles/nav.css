@@ -53,7 +53,7 @@ nav {
 }
 
 .write-new-tweet:hover .material-icons {
-
+  cursor: pointer;
   animation-duration: .5s;
   animation-name: bobble;
   animation-iteration-count: infinite;
