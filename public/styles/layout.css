@@ -23,6 +23,7 @@ body {
 main {
   position: absolute;
   width: 90%;
+  top: 50%;
   left: 0;
   right: 0;
   margin: auto;
@@ -32,3 +33,13 @@ main {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ @media (min-width: 1024px) {
+   main {
+     width: 61%;
+     top: 130px;
+     margin-right: 3%;
+     margin-left: auto;
+     grid-auto-columns: auto;
+   }
+}
