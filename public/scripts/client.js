@@ -190,7 +190,9 @@ $(document).ready(function () {
     const inputLength = $("#textArea").val().length;
 
     if (inputLength === 0) {
-      return alert("no input");
+      $(".validation-error").text("Oops, you haven't entered any text! Try again.");
+      $(".validation-error").show("slow", "swing");
+      return
     } else if (140 < inputLength) {
       return alert("too many characters");
     } else {
