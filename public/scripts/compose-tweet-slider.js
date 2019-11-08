@@ -5,10 +5,3 @@ $(document).ready(function () {
     $("#textArea").focus();
   });
 });
-
-
-
-
-// $(".write-new-tweet-btn").click(function() {
-//   $(".new-tweet").toggleClass("slider");
-// })
