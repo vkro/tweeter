@@ -32,3 +32,10 @@ nav {
   display: flex;
   flex-direction: column;
 }
+
+.write-new-tweet-btn {
+  transform: rotate(90deg);
+  border: none;
+  color: orangered;
+  background-color: transparent;
+}
