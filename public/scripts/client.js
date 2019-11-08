@@ -202,6 +202,7 @@ $(document).ready(function () {
       $.post("/tweets", input.serialize())
       .done(function (result) {
         ($('.tweets-container')).prepend(createTweetElement(result));
+        $("#textArea").focus();
       })
       .fail(function (xhr, textStatus, errorThrown) {
         console.log(errorThrown);
