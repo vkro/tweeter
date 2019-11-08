@@ -162,7 +162,7 @@ $(document).ready(function () {
   const preventFormSubmission = function () {
     $("input").click(function (event) {
       event.preventDefault();
-      $(".validation-error").hide("fast", "swing");
+      $(".validation-error").hide(0, "swing");
       postNewTweet($('.tweet-input'));
       $(".tweet-input").trigger("reset");
       $(".counter").text(140);
@@ -192,11 +192,11 @@ $(document).ready(function () {
 
     if (inputLength === 0) {
       $(".validation-error").text("Oops, you haven't entered any text! Try again.");
-      $(".validation-error").show("slow", "swing");
+      $(".validation-error").slideDown("slow", "swing");
       return
     } else if (140 < inputLength) {
       $(".validation-error").text("Too many characters! Bring it down to 140.");
-      $(".validation-error").show("slow", "swing");
+      $(".validation-error").slideDown("slow", "swing");
       return
     } else {
       $.post("/tweets", input.serialize())

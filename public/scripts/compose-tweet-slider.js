@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $(".write-new-tweet").click(function() {
-    $(".validation-error").hide("fast", "swing");
+    $(".validation-error").hide(0, "swing");
     $(".new-tweet").slideToggle("slow");
   });
 });
