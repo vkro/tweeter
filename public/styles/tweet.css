@@ -61,7 +61,12 @@
 
 .tweet-icons {
   position: absolute;
-  right: 0
+  right: 0;
+  opacity: 0
+}
+
+.tweet:hover .tweet-icons{
+  opacity: .8
 }
 
 @media (min-width: 1024px) {
