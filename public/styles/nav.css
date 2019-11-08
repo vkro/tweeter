@@ -24,13 +24,15 @@ nav {
 
 .right-side-buttons {
   position: absolute;
-  top: 48px;
+  top: 44px;
   right: 5%
 }
 
 .write-new-tweet {
   display: flex;
   flex-direction: column;
+  color: #ffffff;
+  font-size: 15pt
 }
 
 .write-new-tweet-btn {
