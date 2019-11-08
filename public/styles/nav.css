@@ -41,8 +41,31 @@ nav {
 }
 
 .write-new-tweet-btn {
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  width: 30px;
+  height: 30px;
   transform: rotate(90deg);
   border: none;
   color: orangered;
   background-color: transparent;
+}
+
+.write-new-tweet:hover .material-icons {
+
+  animation-duration: .5s;
+  animation-name: bobble;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes bobble {
+  from {
+    transform: translateX(0%)
+  }
+  to {
+    transform: translateX(15%)
+  }
 }
