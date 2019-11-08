@@ -35,6 +35,11 @@ nav {
   font-size: 15pt
 }
 
+.write-new-tweet p {
+  padding: 0;
+  margin: 0;
+}
+
 .write-new-tweet-btn {
   transform: rotate(90deg);
   border: none;
