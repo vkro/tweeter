@@ -3,7 +3,8 @@
   display: none;
   height: 150px;
   padding: 10px 20px;
-  margin: 30px 1px 1px 1px;
+  margin: 30px 1px 40px 1px;
+  font-size: 27pt;
   /* box-shadow: 3px 2px 10px 2px #CACFD2; */
   z-index: -2;
 }
@@ -53,10 +54,24 @@ input:hover {
 
 .validation-error {
   position: absolute;
-  bottom: 27%;
-  left: 20%;
-  font-size: 20px;
+  bottom:25%;
+  left: 17%;
+  font-size: 20pt;
   font-weight: bold;
   padding: .3em;
   color: red
+}
+
+@media (min-width: 1024px) {
+  .new-tweet {
+    margin: 30px 1px 1px 1px;
+    font-size: 19pt
+  }
+
+  .validation-error {
+    bottom: 27%;
+    left: 20%;
+    font-size: 20px;
+  }
+
 }
