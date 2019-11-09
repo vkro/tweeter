@@ -4,9 +4,9 @@
 // Reference: stackoverflow @ https://stackoverflow.com/questions/11792726/turn-seconds-into-hms-format-using-jquery
 
 
-const unitsOfTime = function(seconds) {
+const unitsOfTime = function(milliseconds) {
 
-  let secondsLeft = seconds;
+  let secondsLeft = milliseconds / 1000;
   // how many centuries does this # of seconds contain?
   const century = Math.floor(secondsLeft / (604800 * 52000));
   secondsLeft = secondsLeft - (century * 604800 * 52000);
@@ -38,7 +38,7 @@ const unitsOfTime = function(seconds) {
     day,
     hour,
     minute,
-    second: secondsLeft
+    second: Math.floor(secondsLeft)
   };
   return timeBreakdown;
 };
@@ -72,7 +72,7 @@ const howLongAgoWasThisTweetCreated = function(tweet) {
   
   const currentTime = new Date().getTime();
   const timeTweeted = tweet.created_at;
-  const timeSinceTweet = (currentTime - timeTweeted) / 1000;
+  const timeSinceTweet = (currentTime - timeTweeted);
   const howLong = timeBreakdown(unitsOfTime(timeSinceTweet));
 
   return `${howLong} ago`;
