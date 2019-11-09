@@ -23,10 +23,8 @@
   <!-- Header CSS -->
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
 
-  <!-- New Tweet CSS -->
-  <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
-
   <!-- Tweet CSS -->
+  <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
   <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
   <!-- External JS -->
@@ -40,7 +38,6 @@
   <script src="scripts/composer-char-counter.js"></script>
   <script src="scripts/compose-tweet-slider.js"></script>
   <script src="scripts/helpers.js"></script>
-
 
 </head>
 
@@ -68,12 +65,13 @@
       <br>
     </div>
     <div class="header-username">
-        <h2>Vanessa Kroeker</h2>
-      </div>
+      <h2>Vanessa Kroeker</h2>
+    </div>
   </header>
 
   <!-- Page-specific (main) content here -->
   <main class="container">
+
     <section class="new-tweet">
       <form class="tweet-input" action="/tweets" method="POST">
         <textarea name="text" id="textArea" placeholder="What are you humming about?"></textarea>
@@ -83,15 +81,12 @@
       <span class="validation-error"></span>
     </section>
 
-
-
     <!-- The Tweets -->
-
     <section class="tweets-container">
-
     </section>
 
   </main>
+  
 </body>
 
 </html>
