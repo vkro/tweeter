@@ -1,8 +1,8 @@
 .tweet {
   padding: 15px;
   margin: 20px 0;
-  font-family: 'Source Sans Pro', sans-serif;
   border: 3px solid ;
+  font-family: 'Source Sans Pro', sans-serif;
   opacity: .85
 }
 
@@ -38,9 +38,9 @@
   position: absolute;
   top: 19px;
   right: 10px;
-  opacity: 0;
   font-size: 22pt;
   font-weight: 300;
+  opacity: 0;
 }
 
 .tweet:hover .tweet-handle{
