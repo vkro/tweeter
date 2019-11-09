@@ -13,12 +13,13 @@ $(document).ready(function () {
 
     const timeSinceTweet = howLongAgoWasThisTweetCreated(tweet);
     
+    // this will prevent XSS before we do anything with the tweet input
     const escape =  function(str) {
       let div = document.createElement('div');
       div.appendChild(document.createTextNode(str));
       return div.innerHTML;
-    }
-
+    };
+    // make a new tweet article from the user input
     const $newTweet = `
     <article class="tweet">
     <header class="tweet-header">
@@ -45,42 +46,35 @@ $(document).ready(function () {
   // Appends tweets to the tweets container
 
   const renderTweets = function (tweets) {
+
     const $renderTweetsArray = [];
     for (const tweet of tweets) {
       const tweetElement = createTweetElement(tweet);
       $renderTweetsArray.unshift(tweetElement);
     }
     ($('.tweets-container')).prepend($renderTweetsArray);
-  }
+  };
 
-  // renderTweets(data);
+  // Prevent default submit behaviour
+  // Hide validation error (until triggered)
+  // Send the tweet to be posted
+  // Reset the form and char counter
 
   const preventFormSubmission = function () {
+
     $("input").click(function (event) {
       event.preventDefault();
       $(".validation-error").hide(0, "swing");
       postNewTweet($('.tweet-input'));
       $(".tweet-input").trigger("reset");
       $(".counter").text(140);
-    })
-  }
+    });
+  };
 
   preventFormSubmission();
 
-  // if (0 < $(".counter").text() && $(".counter").text() < 141) {
-  // } else console.log("nope")
-
-  // if (140 < $(".counter").text()) {
-  //     console.log("too many characters!")
-  //   }
-
-  // module.exports = (delay = 3000, isRandom = false) => {
-  //   const wait = isRandom ? Math.floor(Math.random() * delay) : delay;
-  //   return new Promise((resolve, reject) => {
-  //     setTimeout(reject, wait);
-  //   });
-  // };
-
+  // Check for valid input (show validation error message to user if invalid)
+  // Otherwise add tweets to tweets container and set focus back to text input field
 
   const postNewTweet = function (input) {
 
@@ -89,11 +83,11 @@ $(document).ready(function () {
     if (inputLength === 0) {
       $(".validation-error").text("Oops, you haven't entered any text! Try again.");
       $(".validation-error").slideDown("slow", "swing");
-      return
+      return;
     } else if (140 < inputLength) {
       $(".validation-error").text("Too many characters! Bring it down to 140.");
       $(".validation-error").slideDown("slow", "swing");
-      return
+      return;
     } else {
       $.post("/tweets", input.serialize())
       .done(function (result) {
@@ -104,19 +98,20 @@ $(document).ready(function () {
         console.log(errorThrown);
       })
       .always(function () {
-        console.log("finished")
+        console.log("finished");
       })
     }
-  }
+  };
+
+  // load the tweets without reloading page  
 
   const loadTweets = function () {
-
-  $.ajax("/tweets", { method: 'GET' })
+    $.ajax("/tweets", { method: 'GET' })
     .then(function (tweets) {
       renderTweets(tweets);
-    })
-}
-
-loadTweets();
+    });
+  };
+  
+  loadTweets();
 
 });
