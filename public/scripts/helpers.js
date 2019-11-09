@@ -1,45 +1,44 @@
-// Takes in number representing # of seconds
-// Converts into minutes, days, hours, weeks, years, decades, centuries
+// Takes in number representing seconds
+// Converts into units of time: minutes, days, hours, weeks, years, decades, & centuries
+// Returns an object of units with correspoding values
 // Reference: stackoverflow @ https://stackoverflow.com/questions/11792726/turn-seconds-into-hms-format-using-jquery
-// Takes in number representing # of seconds
-// Converts into minutes, days, hours, weeks, and years
-// Returns these values in an object
 
-const unitsOfTime = function (seconds) {
+
+const unitsOfTime = function(seconds) {
 
   let secondsLeft = seconds;
   // how many centuries does this # of seconds contain?
-  const centuries = Math.floor(secondsLeft / (604800 * 52000))
-  secondsLeft = secondsLeft - (centuries * 604800 * 52000)
+  const century = Math.floor(secondsLeft / (604800 * 52000))
+  secondsLeft = secondsLeft - (century * 604800 * 52000)
   // with what's left, how many decades?
-  const decades = Math.floor(secondsLeft / (604800 * 520))
-  secondsLeft = secondsLeft - (decades * 604800 * 520)
+  const decade = Math.floor(secondsLeft / (604800 * 520))
+  secondsLeft = secondsLeft - (decade * 604800 * 520)
   // then how many years
-  const years = Math.floor(secondsLeft / (604800 * 52));
-  secondsLeft = secondsLeft - (years * 604800 * 52);
+  const year = Math.floor(secondsLeft / (604800 * 52));
+  secondsLeft = secondsLeft - (year * 604800 * 52);
   // and months
-  const months = Math.floor(secondsLeft / (68400 * 30));
-  secondsLeft = secondsLeft - (months * 68400 * 30);
+  const month = Math.floor(secondsLeft / (68400 * 30));
+  secondsLeft = secondsLeft - (month * 68400 * 30);
   // days
-  const days = Math.floor(secondsLeft / 68400);
-  secondsLeft = secondsLeft - (days * 68400);
+  const day = Math.floor(secondsLeft / 68400);
+  secondsLeft = secondsLeft - (day * 68400);
   // hours
-  const hours = Math.floor(secondsLeft / 3600);
-  secondsLeft = secondsLeft - (hours * 3600);
+  const hour = Math.floor(secondsLeft / 3600);
+  secondsLeft = secondsLeft - (hour * 3600);
   // minutes
-  const minutes = Math.floor(secondsLeft / 60);
-  // and finally, this is how many seconds are left over
-  secondsLeft = secondsLeft - (minutes * 60)
+  const minute = Math.floor(secondsLeft / 60);
+  // and finally, how many seconds are left over
+  secondsLeft = secondsLeft - (minute * 60)
   // make an object for timeBreakdown to use
   const timeBreakdown = {
-    centuries,
-    decades,
-    years,
-    months,
-    days,
-    hours,
-    minutes,
-    seconds: secondsLeft
+    century,
+    decade,
+    year,
+    month,
+    day,
+    hour,
+    minute,
+    second: secondsLeft
   }
   return timeBreakdown
 }
@@ -49,25 +48,31 @@ const unitsOfTime = function (seconds) {
 // When it reaches the first key with a non-zero value,
 // returns a string indicating the number of the largest unit of time.
 
-const timeBreakdown = function (time) {
+const timeBreakdown = function(time) {
 
   for (const unit of Object.keys(time)) {
     let count = Number(time[unit]);
-    if (count !== 0) {
+    if (count === 1) {
       return `${count} ${unit}`
     }
+    if (1 < count) {
+      if (unit === "century") {
+        return `${count} centuries`
+      } else {
+        return `${count} ${unit}s`
+      }
+    }
   }
-}
+};
 
 // Takes in tweet object
-// Returns amount of time elapsed since date created to current time
+// Returns amount of time elapsed since date created up to current time
 
-const howLongAgoWasThisTweetCreated = function (tweet) {
+const howLongAgoWasThisTweetCreated = function(tweet) {
   
   const currentTime = new Date().getTime();
-  const tweetCreatedAt = tweet.created_at;
-  const timeSinceTweet = currentTime - tweetCreatedAt;
-
+  const timeTweeted = tweet.created_at;
+  const timeSinceTweet = currentTime - timeTweeted;
   const howLong = timeBreakdown(unitsOfTime(timeSinceTweet));
 
   return `${howLong} ago`
