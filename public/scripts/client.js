@@ -106,6 +106,7 @@ $(document).ready(function() {
   // load the tweets without reloading page
 
   const loadTweets = function() {
+    
     $.ajax("/tweets", { method: 'GET' })
       .then(function(tweets) {
         renderTweets(tweets);
