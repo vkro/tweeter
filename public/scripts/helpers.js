@@ -72,8 +72,15 @@ const howLongAgoWasThisTweetCreated = function(tweet) {
   
   const currentTime = new Date().getTime();
   const timeTweeted = tweet.created_at;
-  const timeSinceTweet = currentTime - timeTweeted;
+  const timeSinceTweet = (currentTime - timeTweeted) / 1000;
   const howLong = timeBreakdown(unitsOfTime(timeSinceTweet));
 
   return `${howLong} ago`;
 };
+
+
+// let currentime = new Date().getTime()
+// let timeoftweet = 1573166600762
+// let timediff = (currentime - timeoftweet) / 1000
+
+// console.log(timeBreakdown(unitsOfTime(timediff)))
