@@ -21,14 +21,19 @@ Using starter code from [Lighthouse Labs](https://www.lighthouselabs.ca/) the pr
 
 ## Final Product
 
+Screenshot of app on load
 !["Screenshot of app on load"](https://github.com/vkro/tweeter/blob/master/docs/tweeter-on-load.png)
 
+Screenshot of hover on tweet
 !["Screenshot of hover on tweet"](https://github.com/vkro/tweeter/blob/master/docs/tweet-hover.png)
 
+Screenshot of new tweet text input box
 !["Screenshot of new tweet text input box"](https://github.com/vkro/tweeter/blob/master/docs/tweeter-write-new.png)
 
+Screenshot of character counter on text input
 !["Screenshot of character counter on text input"](https://github.com/vkro/tweeter/blob/master/docs/tweeter-input-char-counter.png)
 
+Screenshot of mobile view with input error message
 !["Screenshot of mobile view with input error message"](https://github.com/vkro/tweeter/blob/master/docs/tweeter-mobile-view-with-error-msg.png)
 
 
