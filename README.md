@@ -2,7 +2,7 @@
 
 Tweeter is a simple, single-page Twitter clone.
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express and MongoDB back-end skills.
+Using starter code from [Lighthouse Labs](https://www.lighthouselabs.ca/) the project was built out with HTML, CSS, JS, jQuery, Express, and AJAX.
 
 ## Getting Started
 
@@ -14,4 +14,26 @@ This repository is the starter code for the project: Students will fork and clon
 ## Dependencies
 
 - Express
-- Node 5.10.x or above
+- Node 5.10.x or above## Dependencies
+- Body-parser
+- Chance
+- md5
+
+## Final Product
+
+!["Screenshot of app on load"](https://github.com/vkro/tweeter/blob/master/docs/tweeter-on-load.png)
+
+!["Screenshot of hover on tweet"](https://github.com/vkro/tweeter/blob/master/docs/tweet-hover.png)
+
+!["Screenshot of new tweet text input box"](https://github.com/vkro/tweeter/blob/master/docs/tweeter-write-new.png)
+
+!["Screenshot of character counter on text input"](https://github.com/vkro/tweeter/blob/master/docs/tweeter-input-char-counter.png)
+
+!["Screenshot of mobile view with input error message"](https://github.com/vkro/tweeter/blob/master/docs/tweeter-mobile-view-with-error-msg.png)
+
+
+## Contributions
+
+Code to initiate the project and roadmap from [Lighthouse Labs](https://www.lighthouselabs.ca/).
+
+Thanks to mentors at Lighthouse Labs for advice, and to [@stella-zb](https://github.com/stella-zb) for code discussion, troubleshooting, and lots of laughs throughout the project.
