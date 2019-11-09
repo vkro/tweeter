@@ -54,7 +54,7 @@ nav {
   background-color: transparent;
 }
 
-.right-side-buttons:hover .material-icons {
+.write-new-tweet:hover .material-icons {
   cursor: pointer;
   animation-duration: .5s;
   animation-name: bobble;
@@ -82,6 +82,8 @@ nav {
   }
   
   .write-new-tweet {
+    height: 75px;
+    width: 150px;
     font-size: 15pt
   }
   
@@ -90,8 +92,4 @@ nav {
     left: 60px;
   }
 
-  .right-side-buttons {
-    height: 50px;
-    width: 150px
-  }
 }
