@@ -29,13 +29,14 @@ $(document).ready(function() {
       </header>
       <p class="tweet-body">${escape(tweet.content.text)}</p>
       <footer class="tweet-footer">
-        <span class="created-at">${timeSinceTweet}</span>
+        <span class="time-since-tweet">${timeSinceTweet}</span>
         <span class="tweet-icons">
         <i class="material-icons">flag</i>
         <i class="material-icons">repeat</i>
         <i class="material-icons">favorite</i>
         </span>
       </footer>
+      <span class="created-at">${tweet.created_at}</span>
     </article>
     `;
     return $newTweet;
