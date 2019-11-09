@@ -4,12 +4,12 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-$(document).ready(function () {
+$(document).ready(function() {
 
-  // Takes in tweet object 
+  // Takes in tweet object
   // Returns tweet <article> containing HTML structure of tweet
 
-  const createTweetElement = function (tweet) {
+  const createTweetElement = function(tweet) {
 
     const timeSinceTweet = howLongAgoWasThisTweetCreated(tweet);
     
@@ -45,7 +45,7 @@ $(document).ready(function () {
   // Calls createTweetElement for each tweet
   // Appends tweets to the tweets container
 
-  const renderTweets = function (tweets) {
+  const renderTweets = function(tweets) {
 
     const $renderTweetsArray = [];
     for (const tweet of tweets) {
@@ -60,9 +60,9 @@ $(document).ready(function () {
   // Send the tweet to be posted
   // Reset the form and char counter
 
-  const preventFormSubmission = function () {
+  const preventFormSubmission = function() {
 
-    $("input").click(function (event) {
+    $("input").click(function(event) {
       event.preventDefault();
       $(".validation-error").hide(0, "swing");
       postNewTweet($('.tweet-input'));
@@ -76,7 +76,7 @@ $(document).ready(function () {
   // Check for valid input (show validation error message to user if invalid)
   // Otherwise add tweets to tweets container and set focus back to text input field
 
-  const postNewTweet = function (input) {
+  const postNewTweet = function(input) {
 
     const inputLength = $("#textArea").val().length;
 
@@ -90,26 +90,26 @@ $(document).ready(function () {
       return;
     } else {
       $.post("/tweets", input.serialize())
-      .done(function (result) {
-        ($('.tweets-container')).prepend(createTweetElement(result));
-        $("#textArea").focus();
-      })
-      .fail(function (xhr, textStatus, errorThrown) {
-        console.log(errorThrown);
-      })
-      .always(function () {
-        console.log("finished");
-      })
+        .done(function(result) {
+          ($('.tweets-container')).prepend(createTweetElement(result));
+          $("#textArea").focus();
+        })
+        .fail(function(xhr, textStatus, errorThrown) {
+          console.log(errorThrown);
+        })
+        .always(function() {
+          console.log("finished");
+        });
     }
   };
 
-  // load the tweets without reloading page  
+  // load the tweets without reloading page
 
-  const loadTweets = function () {
+  const loadTweets = function() {
     $.ajax("/tweets", { method: 'GET' })
-    .then(function (tweets) {
-      renderTweets(tweets);
-    });
+      .then(function(tweets) {
+        renderTweets(tweets);
+      });
   };
   
   loadTweets();
