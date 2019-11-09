@@ -33,7 +33,7 @@ Screenshot of new tweet text input box
 Screenshot of character counter on text input
 !["Screenshot of character counter on text input"](https://github.com/vkro/tweeter/blob/master/docs/tweeter-input-char-counter.png)
 
-Screenshot of mobile view with input error message
+Screenshot of mobile view with input over character limit
 
 !["Screenshot of mobile view with input error message"](https://github.com/vkro/tweeter/blob/master/docs/tweeter-mobile-view-with-error-msg.png)
 
