@@ -74,7 +74,7 @@ $(document).ready(function() {
 
   preventFormSubmission();
 
-  // Check for valid input (show validation error message to user if invalid)
+  // Check for valid input & show validation error message to user if invalid
   // Otherwise add tweets to tweets container and set focus back to text input field
 
   const postNewTweet = function(input) {
