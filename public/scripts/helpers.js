@@ -8,11 +8,11 @@ const unitsOfTime = function(seconds) {
 
   let secondsLeft = seconds;
   // how many centuries does this # of seconds contain?
-  const century = Math.floor(secondsLeft / (604800 * 52000))
-  secondsLeft = secondsLeft - (century * 604800 * 52000)
+  const century = Math.floor(secondsLeft / (604800 * 52000));
+  secondsLeft = secondsLeft - (century * 604800 * 52000);
   // with what's left, how many decades?
-  const decade = Math.floor(secondsLeft / (604800 * 520))
-  secondsLeft = secondsLeft - (decade * 604800 * 520)
+  const decade = Math.floor(secondsLeft / (604800 * 520));
+  secondsLeft = secondsLeft - (decade * 604800 * 520);
   // then how many years
   const year = Math.floor(secondsLeft / (604800 * 52));
   secondsLeft = secondsLeft - (year * 604800 * 52);
@@ -28,7 +28,7 @@ const unitsOfTime = function(seconds) {
   // minutes
   const minute = Math.floor(secondsLeft / 60);
   // and finally, how many seconds are left over
-  secondsLeft = secondsLeft - (minute * 60)
+  secondsLeft = secondsLeft - (minute * 60);
   // make an object for timeBreakdown to use
   const timeBreakdown = {
     century,
@@ -39,9 +39,9 @@ const unitsOfTime = function(seconds) {
     hour,
     minute,
     second: secondsLeft
-  }
-  return timeBreakdown
-}
+  };
+  return timeBreakdown;
+};
 
 // Takes in an object of time with years, months, days, hours, minutes, and seconds
 // as keys with corresponding values.
@@ -53,13 +53,13 @@ const timeBreakdown = function(time) {
   for (const unit of Object.keys(time)) {
     let count = Number(time[unit]);
     if (count === 1) {
-      return `${count} ${unit}`
+      return `${count} ${unit}`;
     }
     if (1 < count) {
       if (unit === "century") {
-        return `${count} centuries`
+        return `${count} centuries`;
       } else {
-        return `${count} ${unit}s`
+        return `${count} ${unit}s`;
       }
     }
   }
@@ -75,5 +75,5 @@ const howLongAgoWasThisTweetCreated = function(tweet) {
   const timeSinceTweet = currentTime - timeTweeted;
   const howLong = timeBreakdown(unitsOfTime(timeSinceTweet));
 
-  return `${howLong} ago`
-}
+  return `${howLong} ago`;
+};
