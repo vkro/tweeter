@@ -14,7 +14,9 @@ Using starter code from [Lighthouse Labs](https://www.lighthouselabs.ca/) the pr
 ## Dependencies
 
 - Express
-- Node 5.10.x or above## Dependencies
+- Node 5.10.x or above
+
+## Dependencies
 - Body-parser
 - Chance
 - md5
